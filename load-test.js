@@ -3,18 +3,18 @@ import { check, sleep, fail } from "k6";
 
 export const options = {
   stages: [
-    // { duration: "30s", target: 10 },
-    // { duration: "30s", target: 50 },
-    // { duration: "30s", target: 100 },
-    // { duration: "30s", target: 300 },
+    { duration: "30s", target: 10 },
+    { duration: "30s", target: 50 },
+    { duration: "30s", target: 100 },
+    { duration: "30s", target: 300 },
     { duration: "30s", target: 500 },
-    // { duration: "30s", target: 1000 },
-    // { duration: "30s", target: 2000 },
-    // { duration: "30s", target: 5000 },
+    { duration: "30s", target: 1000 },
+    { duration: "30s", target: 2000 },
+    { duration: "30s", target: 5000 },
   ],
   thresholds: {
     http_req_failed: ["rate<0.01"], // Abort if >1% failures
-    http_req_duration: ["p(95)<2000"], // Abort if p95 > 2s
+    http_req_duration: ["p(95)<1000"], // Abort if p95 > 2s
   },
 };
 
