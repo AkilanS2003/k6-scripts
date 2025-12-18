@@ -3,14 +3,14 @@ import { check, sleep, fail } from "k6";
 
 export const options = {
   stages: [
-    { duration: "30s", target: 10 },
-    { duration: "30s", target: 50 },
-    { duration: "30s", target: 100 },
-    { duration: "30s", target: 300 },
+    // { duration: "30s", target: 10 },
+    // { duration: "30s", target: 50 },
+    // { duration: "30s", target: 100 },
+    // { duration: "30s", target: 300 },
     { duration: "30s", target: 500 },
-    { duration: "30s", target: 1000 },
-    { duration: "30s", target: 2000 },
-    { duration: "30s", target: 5000 },
+    // { duration: "30s", target: 1000 },
+    // { duration: "30s", target: 2000 },
+    // { duration: "30s", target: 5000 },
   ],
   thresholds: {
     http_req_failed: ["rate<0.01"], // Abort if >1% failures
@@ -22,7 +22,7 @@ const payload = JSON.stringify({
   object: "whatsapp_business_account",
   entry: [
     {
-      id: "test",
+      id: "hi",
       changes: [
         {
           field: "messages",
@@ -32,7 +32,9 @@ const payload = JSON.stringify({
               {
                 id: "load-test",
                 type: "text",
-                text: { body: "hello" },
+                text: {
+                  body: "hello",
+                },
               },
             ],
           },
@@ -44,7 +46,7 @@ const payload = JSON.stringify({
 
 export default function () {
   const res = http.post(
-    "https://akilan1.stack5.us.konnectify.dev/worker/api/webhoook/whatsapp-1.0.0/webhook-listener",
+    "https://akilan1.stack5.us.konnectify.dev/worker/api/webhook/workerLoadTest-1.0.0/webhook-listener",
     payload,
     { headers: { "Content-Type": "application/json" } },
   );
