@@ -14,7 +14,7 @@ export const options = {
   ],
   thresholds: {
     http_req_failed: ["rate<0.01"], // Abort if >1% failures
-    http_req_duration: ["p(95)<1000"], // Abort if p95 > 2s
+    http_req_duration: ["p(95)<2000"], // Abort if p95 > 2s
   },
 };
 
